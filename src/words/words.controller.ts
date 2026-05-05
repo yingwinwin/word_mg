@@ -54,4 +54,16 @@ export class WordsController {
   ) {
     return this.wordsService.remove(userId, id);
   }
+  @Get('review/today')
+  getToday(@CurrentUser('userId') userId: number) {
+    return this.wordsService.getTodayReview(userId);
+  }
+
+  @Post(':id/review')
+  review(
+    @CurrentUser('userId') userId: number,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    return this.wordsService.review(userId, id);
+  }
 }

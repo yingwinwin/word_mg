@@ -21,6 +21,7 @@ model Word {
   meaning      String
   example      String?
   status       String    @default("NEW")
+  reviewCount  Int @default(0)
   nextReviewAt DateTime?
   createdAt    DateTime  @default(now())
   userId       Int
